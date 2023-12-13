@@ -282,6 +282,8 @@ def select_geo(i: str):
         logging.error("!!!!请配置config.py中AMAP_KEY(高德地图的MapKey)")
         raise ValueError
     resp = requests.get(f"https://restapi.amap.com/v3/geocode/geo?key={config.AMAP_KEY}&output=json&address={i}")
+    print(resp.json())
+
     geocodes: list = resp.json()['geocodes']
     return geocodes
 

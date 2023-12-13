@@ -57,7 +57,7 @@ if __name__ == '__main__':
         city = location_select['city']
         location: str = location_select['location']
 
-        mobile = input("输入手机号[13812341234]:").strip()
+        mobile = input("输入手机号:").strip()
         process.get_vcode(mobile)
         code = input(f"输入 [{mobile}] 验证码[1234]:").strip()
         token, userId = process.login(mobile, code)
