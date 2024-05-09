@@ -6,6 +6,7 @@ import config
 import login
 import process
 import privateCrypt
+from BarkPusher import BarkPusher
 
 DATE_FORMAT = "%m/%d/%Y %H:%M:%S %p"
 TODAY = datetime.date.today().strftime("%Y%m%d")
@@ -73,6 +74,8 @@ for section in configs.sections():
     except BaseException as e:
         print(e)
         logging.error(e)
+        barkPusher = BarkPusher(mobile)
+        barkPusher.bark()
 
 # 推送消息
 process.send_msg(s_title, s_content)
